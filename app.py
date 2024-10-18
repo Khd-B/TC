@@ -1,3 +1,5 @@
+import streamlit as st
+
 def celsius_to_fahrenheit(celsius):
     return celsius * 9/5 + 32
 
@@ -35,18 +37,17 @@ def convert_temperature(value, from_unit, to_unit):
     
     return None
 
-def main():
-    print("Temperature Converter")
-    value = float(input("Enter the temperature value: "))
-    from_unit = input("Enter the unit of the temperature (C, F, K): ").upper()
-    to_unit = input("Enter the unit to convert to (C, F, K): ").upper()
+# Streamlit UI
+st.title("Temperature Converter")
 
+value = st.number_input("Enter the temperature value:", value=0.0)
+from_unit = st.selectbox("Select the unit of the temperature:", ['C', 'F', 'K'])
+to_unit = st.selectbox("Select the unit to convert to:", ['C', 'F', 'K'])
+
+if st.button("Convert"):
     result = convert_temperature(value, from_unit, to_unit)
     
     if result is not None:
-        print(f"{value}°{from_unit} is {result:.2f}°{to_unit}")
+        st.success(f"{value}°{from_unit} is {result:.2f}°{to_unit}")
     else:
-        print("Invalid units. Please use C, F, or K.")
-
-if __name__ == "__main__":
-    main()
+        st.error("Invalid units. Please use C, F, or K.")
