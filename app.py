@@ -102,4 +102,4 @@ if st.button("Convert"):
 
 # Add a footer with additional information
 st.markdown("---")
-st.markdown("Created with ❤️ by Khalid Baig")
+st.markdown("Created with ❤️ by [Your Name](https://yourwebsite.com)")
