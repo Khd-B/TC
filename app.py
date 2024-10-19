@@ -2,6 +2,7 @@ import streamlit as st
 import matplotlib.pyplot as plt
 import numpy as np
 
+# Temperature conversion functions
 def celsius_to_fahrenheit(celsius):
     return celsius * 9/5 + 32
 
@@ -42,12 +43,19 @@ def convert_temperature(value, from_unit, to_unit):
 # Streamlit UI
 st.set_page_config(page_title="Interactive Temperature Converter", page_icon="🌡️")
 
-# Background color
+# Set background color using CSS
 st.markdown(
     """
     <style>
     .reportview-container {
         background-color: #f0f8ff;
+    }
+    .stButton>button {
+        background-color: #4CAF50; /* Green */
+        color: white;
+    }
+    .stButton>button:hover {
+        background-color: #45a049; /* Darker green */
     }
     </style>
     """,
@@ -94,4 +102,4 @@ if st.button("Convert"):
 
 # Add a footer with additional information
 st.markdown("---")
-st.markdown("Created with ❤️ by [Khalid Baig]")
+st.markdown("Created with ❤️ by Khalid Baig")
